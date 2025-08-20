@@ -11,8 +11,8 @@ class CarNode:
 class ParkingLot:
     def __init__(self, capacity):
         self.capacity = capacity
-        self.slots = [None] * capacity  # Simulate dynamic memory allocation of slots
-        self.head = None  # Head of linked list
+        self.slots = [None] * capacity 
+        self.head = None 
         self.tail = None
         self.active_cars = 0
 
@@ -62,11 +62,10 @@ class ParkingLot:
 
         while current:
             if current.license_plate == license_plate:
-                # Free the slot
+               
                 self.slots[current.slot_number] = None
                 print(f"Car {license_plate} exited from slot {current.slot_number}")
 
-                # Remove from linked list
                 if prev is None:
                     self.head = current.next
                 else:
@@ -94,7 +93,6 @@ class ParkingLot:
             current = current.next
 
 
-# Example Usage
 if __name__ == "__main__":
     lot = ParkingLot(capacity=3)
 
@@ -104,13 +102,12 @@ if __name__ == "__main__":
 
     lot.display_parked_cars()
 
-    # Attempting overflow
+
     lot.park_car("GJ04GH3456")
 
-    # Exiting a car
     lot.exit_car("MH02CD5678")
     lot.display_parked_cars()
 
-    # Parking again after a car has left
+
     lot.park_car("GJ04GH3456")
     lot.display_parked_cars()
